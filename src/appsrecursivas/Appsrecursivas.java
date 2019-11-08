@@ -17,36 +17,35 @@ public class Appsrecursivas {
         return retorno;
     }
     
-    public static float potenciaNegativaRecursiva(int numero, int potencia){
+    public static float potenciaNegativaRecursiva(float numero, int potencia){
         //el valor potencia tiene que ser negativa
         float retorno;
         //caso base
         if(potencia == 0){
-            retorno = 1;
+            retorno = (float) 1.0;
         }else{
             //paso recursivo
-            retorno = (float)(1/numero) * potenciaNegativaRecursiva(numero, potencia - 1);
+            retorno = (float)(1.0 /numero ) * potenciaNegativaRecursiva(numero, potencia - 1);
         }
-        System.out.println(retorno);
-        
+        //retorno        
         return retorno;
     }
     
     public static float potenciaNegativaMain(int numero, int potencia){
         //valor de retorno
         float retorno;
-        
-        retorno = potenciaNegativaRecursiva(numero, -1 * potencia);
+        float num = numero;
+        retorno = potenciaNegativaRecursiva(num, -1 * potencia);
         
         return retorno;
     }
     
-    public static double potencia(int numero, int potencia){
+    public static float potencia(int numero, int potencia){
         //valor de retorno
-        double retorno;
+        float retorno;
         
         if(potencia >= 0){
-            retorno = potenciaPositivaRecursiva(numero, potencia);
+            retorno = (float)potenciaPositivaRecursiva(numero, potencia);
         }else{
             retorno = potenciaNegativaMain(numero, potencia);
         }
@@ -79,7 +78,7 @@ public class Appsrecursivas {
         System.out.println(cantidadMatriz(a, a.length-1, 2));
         System.out.println("potencia positiva: "+potenciaPositivaRecursiva(1, 3));
         System.out.println("potencia negativa: "+potenciaNegativaMain(3, -3));
-        System.out.println((float) (1 / 4));
+        System.out.println("potencia indiferente: (3,3)"+potencia(3, 3)+", (3,-3): "+potencia(3, -3));
     }
     
 }
