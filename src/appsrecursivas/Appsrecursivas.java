@@ -7,13 +7,14 @@ package appsrecursivas;
 public class Appsrecursivas {
     public static int potenciaPositivaRecursiva(int numero, int potencia){
         int retorno;
-        //caso recursovo
+        //caso base
         if(potencia == 0){
             retorno = 1;
         }else{
+            //paso recursivo
             retorno = numero * potenciaPositivaRecursiva(numero, potencia - 1);
         }
-        
+        //valor de retorno
         return retorno;
     }
     
@@ -32,24 +33,24 @@ public class Appsrecursivas {
     }
     
     public static float potenciaNegativaMain(int numero, int potencia){
-        //valor de retorno
+        //el modulo main que controla el algoritmo recursivo
         float retorno;
         float num = numero;
         retorno = potenciaNegativaRecursiva(num, -1 * potencia);
-        
         return retorno;
     }
     
     public static float potencia(int numero, int potencia){
         //valor de retorno
         float retorno;
-        
+        //en caso de ser mayor a cero
         if(potencia >= 0){
             retorno = (float)potenciaPositivaRecursiva(numero, potencia);
         }else{
+            //en caso de ser menor a cero
             retorno = potenciaNegativaMain(numero, potencia);
         }
-        
+        //valor de retorno
         return retorno;
     }
     
@@ -72,6 +73,33 @@ public class Appsrecursivas {
         return retorno;
     }
     
+    public static int suma(int a, int b){
+        int retorno;
+        //caso base
+        if(b == 0){
+            retorno = a;
+        }else{
+            //paso recursivo
+            retorno = 1 + suma(a, b-1);
+        }
+        
+        return retorno;
+    }
+    
+    public static int resta(int a, int b){
+        int retorno;
+        //caso base
+        if(b == 0){
+            retorno = a;
+        }else{
+            //paso recursivo
+            retorno = resta(a, b-1) - 1;
+        }
+        
+        return retorno;
+    }
+    
+    
     public static void main(String[] args) {
         int[] a = {1,2,2,3,4,54,3,2,1};
         
@@ -79,6 +107,8 @@ public class Appsrecursivas {
         System.out.println("potencia positiva: "+potenciaPositivaRecursiva(1, 3));
         System.out.println("potencia negativa: "+potenciaNegativaMain(3, -3));
         System.out.println("potencia indiferente: (3,3)"+potencia(3, 3)+", (3,-3): "+potencia(3, -3));
+        System.out.println("suma: "+suma(2,10));
+        System.out.println("resta: "+resta(2,2));
     }
     
 }
