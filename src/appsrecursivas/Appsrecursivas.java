@@ -99,6 +99,22 @@ public class Appsrecursivas {
         return retorno;
     }
     
+    public static int busquedaBinaria(int[] arreglo,int inicio, int fin, int buscado){
+        int retorno;
+        int medio = fin / 2;
+        //caso base
+        if(fin == inicio || arreglo[inicio] == buscado){
+            if(arreglo[inicio] == buscado){
+                retorno = medio;
+            }else{
+                retorno = -1;
+            }
+        }else{
+            //paso recursivo
+            if()
+        }
+    }
+    
     
     public static void main(String[] args) {
         int[] a = {1,2,2,3,4,54,3,2,1};
