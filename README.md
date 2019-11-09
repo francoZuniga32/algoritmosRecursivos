@@ -37,7 +37,7 @@ FIN MODULO
 en java:
 ```java
 public static int factorial(int n){
-        int retorno;
+       	int retorno;
         //caso base
         if(n == 0){
             retorno = 1;
@@ -46,5 +46,5 @@ public static int factorial(int n){
             retorno = n * factorial(n-1);
         }
         return retorno;
-    }
+}
 ```
