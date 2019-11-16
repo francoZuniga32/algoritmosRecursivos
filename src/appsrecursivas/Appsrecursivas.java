@@ -100,7 +100,7 @@ public class Appsrecursivas {
     }
     
     public static int busquedaBinaria(int[] arreglo,int inicio, int fin, int buscado){
-        int retorno;
+        int retorno = 0;
         int medio = fin / 2;
         //caso base
         if(fin == inicio || arreglo[inicio] == buscado){
@@ -109,12 +109,50 @@ public class Appsrecursivas {
             }else{
                 retorno = -1;
             }
+        }
+        return retorno;
+    }
+    
+    public static int factorial(int n){
+        int retorno;
+        //caso base
+        if(n == 0){
+            retorno = 1;
         }else{
             //paso recursivo
-            if()
+            retorno = n * factorial(n-1);
+        }
+        return retorno;
+    }
+    
+    public static void arregloDinamico(int[] nuevoArreglo, int[] original, int longitud){
+        /* 
+        *  
+        */ 
+        //caso base: estamos al principio del algoritmo
+        if(longitud == 0){
+            nuevoArreglo[longitud] = original[longitud];
+        }else{
+            //paso recursivo: llamamos al algoritmo, si estamos en esta posicion vemos:
+            arregloDinamico(nuevoArreglo, original, longitud-1);
+            //en caso de que allamos agotado el arreglo original pedimos datos
+            if(original.length <= longitud){
+                System.out.println("Ingrese un valor al arreglo");
+                nuevoArreglo[longitud] = teclado.Entero();
+            }else{
+                nuevoArreglo[longitud] = original[longitud];
+            }
         }
     }
     
+    public static String listar(int[] arreglo){
+        String retorno = "[";
+        for(int i = 0; i < arreglo.length; i++){
+            retorno = retorno+","+arreglo[i];
+        }
+        retorno = retorno+"]";
+        return retorno;
+    }
     
     public static void main(String[] args) {
         int[] a = {1,2,2,3,4,54,3,2,1};
@@ -125,6 +163,16 @@ public class Appsrecursivas {
         System.out.println("potencia indiferente: (3,3)"+potencia(3, 3)+", (3,-3): "+potencia(3, -3));
         System.out.println("suma: "+suma(2,10));
         System.out.println("resta: "+resta(2,2));
+        System.out.println("factoria de :"+3+" es: "+factorial(3));
+        
+        int[] arregloOrinal = {1,3,2,4};
+        System.out.println("El arreglo actual es: "+listar(arregloOrinal)+" cuantos numero quiere agregar: ");
+        int nuevaLongitud = teclado.Entero();
+        int[] nuevoArreglo = new int[arregloOrinal.length + nuevaLongitud];
+        arregloDinamico(nuevoArreglo, arregloOrinal, nuevoArreglo.length - 1);
+        System.out.println("el Nuevo arreglo es: "+listar(nuevoArreglo));
+                
+        
     }
     
 }
