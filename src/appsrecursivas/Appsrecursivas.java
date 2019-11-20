@@ -154,6 +154,24 @@ public class Appsrecursivas {
         return retorno;
     }
     
+    public static int pocionMayor(int[] arreglo, int longitud){
+        int retorno;
+        //caso base
+        if(longitud == 0){
+            retorno = 0;
+        }else{
+            //paso recursivo
+            int anterior = pocionMayor(arreglo, longitud-1);
+            if(arreglo[anterior] >= arreglo[longitud]){
+                retorno = anterior;
+            }else{
+                retorno = longitud;
+            }
+        }
+        
+        return retorno;
+    }
+    
     public static void main(String[] args) {
         int[] a = {1,2,2,3,4,54,3,2,1};
         
@@ -172,7 +190,8 @@ public class Appsrecursivas {
         arregloDinamico(nuevoArreglo, arregloOrinal, nuevoArreglo.length - 1);
         System.out.println("el Nuevo arreglo es: "+listar(nuevoArreglo));
                 
-        
+        System.out.println("obtenemos la pocion del mayor numero del arreglo: "+pocionMayor(nuevoArreglo, nuevoArreglo.length-1));
+        System.out.println("el mayot numero del arreglo es: "+nuevoArreglo[pocionMayor(nuevoArreglo, nuevoArreglo.length -1)]);
     }
     
 }
